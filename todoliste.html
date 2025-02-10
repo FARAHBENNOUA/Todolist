@@ -1,0 +1,109 @@
+<!--
+    Application Todo List
+    Créé par Farah
+    Date: 10/02/2025
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List par Farah</title>
+    <link rel="stylesheet" href="todoliste.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Menu Burger -->
+    <div class="burger-menu" role="navigation">
+        <button class="burger-icon" aria-label="Menu de navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+      
+    <!-- Menu de Navigation -->
+    <nav class="nav-menu" role="navigation">
+        <ul>
+            <li><i class="fas fa-pray" aria-hidden="true"></i> Prières</li>
+            <li><i class="fas fa-tasks" aria-hidden="true"></i> Tâches</li>
+            <li><i class="fas fa-cog" aria-hidden="true"></i> Paramètres</li>
+        </ul>
+    </nav>
+
+    <!-- Contenu Principal -->
+    <div class="container">
+        <!-- Section Prières -->
+        <div id="prayers" class="section section-prayers">
+            <h2><i class="fas fa-pray" aria-hidden="true"></i> Prières</h2>
+            <div class="prayer-grid" role="grid"></div>
+        </div>
+
+        <!-- Section Tâches Journalières -->
+        <div class="section section-daily">
+            <h2><i class="fas fa-calendar-day" aria-hidden="true"></i> Objectifs Journaliers</h2>
+            <form class="add-task-form">
+                <label for="task-input" class="visually-hidden">Nouvelle tâche</label>
+                <input type="text" id="task-input" class="task-input" placeholder="Nouvelle tâche" required>
+                
+                <label for="task-deadline" class="visually-hidden">Date limite</label>
+                <input type="datetime-local" id="task-deadline" class="task-deadline" required>
+                
+                <label for="task-period" class="visually-hidden">Période</label>
+                <select id="task-period" class="task-period" required>
+                    <option value="daily">Jour</option>
+                    <option value="weekly">Semaine</option>
+                    <option value="monthly">Mois</option>
+                    <option value="yearly">Année</option>
+                </select>
+                
+                <label for="task-category" class="visually-hidden">Catégorie</label>
+                <select id="task-category" class="task-category" required>
+                    <option value="professional">Professionnel</option>
+                    <option value="personal">Personnel</option>
+                    <option value="study">Études</option>
+                    <option value="health">Santé</option>
+                </select>
+                
+                <label for="task-medal" class="visually-hidden">Importance</label>
+                <select id="task-medal" class="task-medal" required>
+                    <option value="gold">🥇 Or</option>
+                    <option value="silver">🥈 Argent</option>
+                    <option value="bronze">🥉 Bronze</option>
+                </select>
+                
+                <button type="submit" class="add-button" aria-label="Ajouter la tâche">
+                    <i class="fas fa-plus" aria-hidden="true"></i> Ajouter
+                </button>
+            </form>
+            <div class="tasks-list" data-period="daily" role="list"></div>
+        </div>
+
+        <!-- Section Tâches Hebdomadaires -->
+        <div class="section section-weekly">
+            <h2><i class="fas fa-calendar-week" aria-hidden="true"></i> Objectifs Hebdomadaires</h2>
+            <div class="tasks-list" data-period="weekly" role="list"></div>
+        </div>
+
+        <!-- Section Tâches Mensuelles -->
+        <div class="section section-monthly">
+            <h2><i class="fas fa-calendar-alt" aria-hidden="true"></i> Objectifs Mensuels</h2>
+            <div class="tasks-list" data-period="monthly" role="list"></div>
+        </div>
+
+        <!-- Section Tâches Annuelles -->
+        <div class="section section-yearly">
+            <h2><i class="fas fa-calendar" aria-hidden="true"></i> Objectifs Annuels</h2>
+            <div class="tasks-list" data-period="yearly" role="list"></div>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <p>© 2025 Todo List par Farah - Tous droits réservés</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="todoliste.js"></script>
+</body>
+</html>

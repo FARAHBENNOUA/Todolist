@@ -1,0 +1,308 @@
+/*
+    Styles pour l'application Todo List
+    Créé par Farah
+    Date: 10/02/2025
+*/
+
+:root {
+    --color-green: #e8f5e9;
+    --color-purple: #f3e5f5;
+    --color-pink: #fce4ec;
+    --color-blue: #e3f2fd;
+    --color-orange: #fff3e0;
+}
+
+/* Classe pour l'accessibilité */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-green);
+    margin: 0;
+    padding: 20px;
+}
+
+/* Menu Burger */
+.burger-menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.burger-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.burger-icon span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin: 6px 0;
+    background-color: #333;
+    transition: 0.4s;
+}
+
+.burger-icon.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.burger-icon.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-icon.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Menu Navigation */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background: white;
+    padding: 60px 20px;
+    transition: 0.4s;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    z-index: 999;
+}
+
+.nav-menu.active {
+    right: 0;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li {
+    margin: 20px 0;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-menu li:hover {
+    color: #4caf50;
+}
+
+/* Structure principale */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section {
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.section-prayers { background: var(--color-green); }
+.section-daily { background: var(--color-blue); }
+.section-weekly { background: var(--color-purple); }
+.section-monthly { background: var(--color-pink); }
+.section-yearly { background: var(--color-orange); }
+
+/* Grille des prières */
+.prayer-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.prayer-card {
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.prayer-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Formulaire */
+.add-task-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.task-input,
+.task-deadline,
+select,
+.add-button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.task-input {
+    flex: 1 1 200px;
+}
+
+.task-deadline,
+select {
+    flex: 1 1 150px;
+}
+
+select {
+    cursor: pointer;
+    background-color: white;
+}
+
+.add-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-button:hover {
+    background-color: #388e3c;
+}
+
+/* Tâches */
+.tasks-list {
+    margin-top: 15px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin: 8px 0;
+    background: white;
+    border-radius: 4px;
+    border-left: 4px solid #ddd;
+    transition: transform 0.2s ease;
+}
+
+.task:hover {
+    transform: translateX(5px);
+}
+
+.task.done { 
+    border-left-color: #4caf50;
+    background: var(--color-green);
+}
+
+.task.progress { 
+    border-left-color: #ff9800;
+    background: var(--color-orange);
+}
+
+.task.todo { 
+    border-left-color: #f44336;
+    background: #ffebee;
+}
+
+.task-text {
+    flex: 1;
+    margin: 0 10px;
+}
+
+/* Boutons dans les tâches */
+.delete-button,
+.status-button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.status-button {
+    background-color: #2196f3;
+    color: white;
+}
+
+.delete-button:hover,
+.status-button:hover {
+    opacity: 0.8;
+}
+
+/* Médailles */
+.medal {
+    margin-left: 10px;
+    font-size: 1.2em;
+}
+
+.medal.gold { color: #ffd700; }
+.medal.silver { color: #c0c0c0; }
+.medal.bronze { color: #cd7f32; }
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .prayer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .add-task-form {
+        flex-direction: column;
+    }
+
+    .task-input,
+    .task-deadline,
+    select,
+    .add-button {
+        width: 100%;
+        flex: none;
+    }
+
+    .task {
+        flex-wrap: wrap;
+    }
+}
+
+/* Focus styles pour l'accessibilité */
+.task-input:focus,
+.task-deadline:focus,
+select:focus,
+.add-button:focus,
+.delete-button:focus,
+.status-button:focus {
+    outline: 2px solid #2196f3;
+    outline-offset: 2px;
+}
